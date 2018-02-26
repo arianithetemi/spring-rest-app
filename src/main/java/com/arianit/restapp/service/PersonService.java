@@ -15,26 +15,24 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    /*
-        Finding and returning all person data using personRepository method
-    */
+    // Finding and returning all person data using personRepository method
     public Iterable<Person> list() {
         return personRepository.findAll();
     }
 
-    /*
-        Finding Person by given id using personRepository
-     */
+    // Finding Person by given id using personRepository
     public Person readById(long id) {
         return personRepository.findOne(id);
     }
 
-    /*
-        Getting a list of persons and saving to H2 database using personRepository method
-     */
+    // Finding and returning people ordered by name by ascending
+    public List<Person> findAllOrderedByNameAsc() {
+        return personRepository.findAllByOrderByNameAsc();
+    }
+
+    // Getting a list of persons and saving to H2 database using personRepository method
     public void save(List<Person> people) {
         personRepository.save(people);
     }
-
 
 }

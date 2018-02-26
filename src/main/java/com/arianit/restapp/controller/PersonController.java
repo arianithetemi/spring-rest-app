@@ -18,7 +18,7 @@ public class PersonController {
     }
 
     /*
-        GET: Endpoint will perform query to return as response people data as JSON
+        Endpoint will return as response people data as JSON
      */
     @RequestMapping( value = "/", method = RequestMethod.GET)
     public Iterable<Person> list() {
@@ -26,7 +26,7 @@ public class PersonController {
     }
 
     /*
-        GET: Endpoint will take as path parameter an id,
+        Endpoint will take as path parameter an id,
         personService will find Person by given id in path
         will return as response that Person data as JSON
      */
@@ -35,4 +35,12 @@ public class PersonController {
         return personService.readById(id);
     }
 
+    /*
+        Endpoint that will return as JSON list of People
+        sorted naturally by their names
+     */
+    @RequestMapping(value = "/sort/name", method = RequestMethod.GET)
+    public Iterable<Person> getPeopleOrderedByNameAsc() {
+        return personService.findAllOrderedByNameAsc();
+    }
 }
