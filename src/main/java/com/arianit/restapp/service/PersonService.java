@@ -23,10 +23,18 @@ public class PersonService {
     }
 
     /*
+        Finding Person by given id using personRepository
+     */
+    public Person readById(long id) {
+        return personRepository.findOne(id);
+    }
+
+    /*
         Getting a list of persons and saving to H2 database using personRepository method
      */
     public void save(List<Person> people) {
         personRepository.save(people);
     }
+
 
 }
