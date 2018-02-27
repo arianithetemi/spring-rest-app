@@ -18,6 +18,10 @@ public class PersonService {
         return personRepository.findAll();
     }
 
+    public Person create(Person person) {
+        return personRepository.save(person);
+    }
+
     // Finding Person by given id using personRepository
     public Person readById(long id) {
         return personRepository.findOne(id);

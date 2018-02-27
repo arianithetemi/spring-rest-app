@@ -3,10 +3,12 @@ package com.arianit.restapp.controller;
 import com.arianit.restapp.domain.Person;
 import com.arianit.restapp.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/api/people")
@@ -21,6 +23,25 @@ public class PersonController {
     @RequestMapping( value = "/", method = RequestMethod.GET)
     public Iterable<Person> list() {
         return personService.list();
+    }
+
+    @RequestMapping( value = "/", method = RequestMethod.POST)
+    public Person create(@RequestBody Person person) {
+
+        // Create an instance of SimpleDateFormat used for formatting
+        // the string representation of date and time
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSSZ");
+
+        // Get the date today using Calendar object.
+        Date today = Calendar.getInstance().getTime();
+
+        // Using DateFormat format method we can create a string
+        // representation of a date with the defined format.
+        String createdDate = df.format(today);
+
+        person.setTimestamp(createdDate);
+
+        return personService.create(person);
     }
 
     /*
