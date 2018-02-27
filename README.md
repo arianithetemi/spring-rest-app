@@ -180,7 +180,7 @@ Returns json of a specific Person data based on its id
 
 * **URL**
 
-  /api/people/{id}
+  /api/people/:id
 
 * **Method:**
 
@@ -217,8 +217,33 @@ Returns json of a specific Person data based on its id
         "creditcard": "1211-1221-1234-2201"
      }
     ```
-      
-      
+    
+### Delete Person
+Deletes Person by its ID and returns a message if deleted successfully
+ 
+* **URL**
+ 
+   /api/people/:id
+    
+* **Method:**
+    
+   `DELETE`
+   
+* **URL Params**
+
+  **Required:**
+ 
+  `id=[integer]`
+    
+* **Success Response:**
+
+   * **Code**: 200
+
+     **Content:** 
+
+     ```json
+         {"message": "Person successfully deleted!"}
+      ```
  
 ### Sort People Data
 Returns json of people data sorted naturally by its name
