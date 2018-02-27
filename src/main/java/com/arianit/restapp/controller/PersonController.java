@@ -2,6 +2,7 @@ package com.arianit.restapp.controller;
 
 import com.arianit.restapp.domain.Person;
 import com.arianit.restapp.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,11 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/people")
 public class PersonController {
 
+    @Autowired
     private PersonService personService;
-
-    public PersonController(PersonService personService) {
-        this.personService = personService;
-    }
 
     /*
         Endpoint will return as response people data as JSON

@@ -2,6 +2,7 @@ package com.arianit.restapp.service;
 
 import com.arianit.restapp.domain.Person;
 import com.arianit.restapp.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,11 +10,8 @@ import java.util.List;
 @Service
 public class PersonService {
 
+    @Autowired
     private PersonRepository personRepository;
-
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
 
     // Finding and returning all person data using personRepository method
     public Iterable<Person> list() {
