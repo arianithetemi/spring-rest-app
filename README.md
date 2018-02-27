@@ -20,12 +20,16 @@ These instructions will get you a copy of the project up and running on you loca
 
 ## Local Installation
 ### Prerequisites
-  * Java SDK 8
-  * Apache Maven
-  * Spring Boot
-  * Git
-  * IntelliJ IDEA (Optional)
-  
+  #### Required
+   * Java SDK 8
+  #### Optional
+   * Apache Maven
+   * Spring Boot
+   * Git
+   * IntelliJ IDEA
+
+**Note: If you want to use command line to run application and tests you need to install softwares mentioned in Optional**
+
 ## Installing and Running Application
 Please follow carefully step by step instructions below in order to get the app up and running locally.
 
@@ -64,7 +68,7 @@ Follow the instructions below in order to run automated tests.
  ```
  
  ## API Documentation 
- **Basepath: localhost:8080**
+ **Localhost base URL: http://localhost:8080**
  
  ### Show People
  Returns json list of people data
@@ -101,6 +105,12 @@ Returns json of a specific Person data based on its id
 * **URL**
  
    /api/people/:id
+   
+*  **URL Params**
+
+   **Required:**
+ 
+   `id=[integer]`
     
 * **Method:**
     
@@ -121,6 +131,46 @@ Returns json of a specific Person data based on its id
           "mac": "9e:ea:28:41:2a:50",
           "timestamp": "2015-04-25 21:02:11 +0700",
           "creditcard": "1211-1221-1234-2201"
+      }
+      ```
+
+### Create Person
+
+  Create new Person from json structure with values sent in body of request
+
+* **URL**
+
+  /api/people/
+
+* **Method:**
+
+  `POST`
+
+* **Body Data (application/json)**
+
+  ```json
+     {
+          "name": "John Doe",
+          "email": "johndoe@gmail.com",
+          "city": "Gjilan",
+          "mac": "9e:ea:28:41:2a:50",
+          "creditcard": "1111-2222-3333-4444"
+      }
+   ```
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    
+    ```json
+     {
+        "id": 51,
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "city": "Gjilan",
+        "mac": "9e:ea:28:41:2a:50",
+        "timestamp": "2018-02-27 20:24:32 675+0100",
+        "creditcard": "1111-2222-3333-4444"
       }
       ```
  
