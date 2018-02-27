@@ -25,6 +25,7 @@ public class RestappApplicationTests {
         RestAssured.port = port;
     }
 
+    // Testing the body response type of endpoint getting people data
     @Test
     public void testGetPeopleEndpointContentType() {
         given().when().get("/api/people/").then()
@@ -34,12 +35,14 @@ public class RestappApplicationTests {
                 .contentType(ContentType.JSON);
     }
 
+    // Testing the value of key name of Person with id one
     @Test
     public void testGetPersonByIdEndpoint() {
         given().when().get("api/people/1").then().statusCode(200).assertThat()
                 .body("name", equalTo("Keeley Bosco"));
     }
 
+    // Testing the length of JSON objects in response of getting people data
     @Test
     public void testSizeOfPeopleResponse() {
         given().when().get("api/people/").then().assertThat()
