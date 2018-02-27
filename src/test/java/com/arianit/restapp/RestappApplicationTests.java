@@ -1,16 +1,49 @@
 package com.arianit.restapp;
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.http.ContentType;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static com.jayway.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RestappApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @LocalServerPort
+    private int port;
+
+    @Before
+    public void setUp() throws Exception {
+        RestAssured.port = port;
+    }
+
+    @Test
+    public void testGetPeopleEndpointContentType() {
+        given().when().get("/api/people/").then()
+                .assertThat()
+                .statusCode(200)
+            .and()
+                .contentType(ContentType.JSON);
+    }
+
+    @Test
+    public void testGetPersonByIdEndpoint() {
+        given().when().get("api/people/1").then().statusCode(200).assertThat()
+                .body("name", equalTo("Keeley Bosco"));
+    }
+
+    @Test
+    public void testSizeOfPeopleResponse() {
+        given().when().get("api/people/").then().assertThat()
+                .body("size()", is(50));
+    }
 
 }
