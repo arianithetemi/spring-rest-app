@@ -43,7 +43,7 @@ public class RestappApplication {
                  * if successfully saved a message will prit out in console
                  */
                 List<Person> people = mapper.readValue(inputStream, typeReference);
-                personService.save(people);
+                personService.saveAll(people);
                 System.out.println("People data successfully saved!");
             } catch (IOException e) {
                 // If there was an error mapping and saving JSON data, error will print out in console
