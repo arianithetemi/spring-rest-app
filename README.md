@@ -273,6 +273,17 @@ Returns json of people data sorted naturally by its name
          "creditcard": "1234-2121-1221-1211"
          }, {...}]
       ```
+      
+## Accessing H2 DBMS
+If you want to see the database you need to access into the H2 Console DBMS
+Follow the instructions below:
+
+1. Run the application
+2. Go to http://localhost:8080/console
+3. In **JDBC URL** input write: **jdbc:h2:mem:mydb;**
+4. Click **Connect** and you have access to the data of in-memory database of this App
+    
+**Note: The database is in-memory database so when restarting the application the new or modified data added in database will be removed!**
    
  ## Author
   * **Arianit Hetemi**
