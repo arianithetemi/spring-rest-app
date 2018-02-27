@@ -1,6 +1,5 @@
 # Spring RESTful Application
-A RESTful API Application built on Spring Framework. When running this application a command line runner will be excetuted in order to populate the in-memory SQL database with entries from a JSON file. The resource of REST API is **People**, which will response JSON structure data based on endpoints.
-
+A RESTful API Application built on Spring Framework. When running this application a command line runner will be excetuted in order to populate the in-memory SQL database with entries from a JSON file. The resource of RESTful API is **People**, which will response JSON structure data based on endpoints.
 
 
 ## Technologies used:
@@ -22,13 +21,13 @@ These instructions will get you a copy of the project up and running on you loca
 ### Prerequisites
   #### Required
    * Java SDK 8
+   * Java IDE (IntelliJ IDEA recommended)
+   * Git
   #### Optional
    * Apache Maven
    * Spring Boot
-   * Git
-   * IntelliJ IDEA
 
-**Note: If you want to use command line to run application and tests you need to install softwares mentioned in Optional**
+**Note: If you want to use command line to run application and tests you need to install softwares mentioned in Optional above**
 
 ## Installing and Running Application
 Please follow carefully step by step instructions below in order to get the app up and running locally.
@@ -69,6 +68,8 @@ Follow the instructions below in order to run automated tests.
  
  ## API Documentation 
  **Localhost base URL: http://localhost:8080**
+ 
+ **Note: In order to test API RESTful Endpoints you need to use an HTTP Client Tool, Postman is recommended**
  
  ### Show People
  Returns json list of people data
