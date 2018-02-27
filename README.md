@@ -173,6 +173,52 @@ Returns json of a specific Person data based on its id
         "creditcard": "1111-2222-3333-4444"
       }
       ```
+      
+### Update Person Data
+
+  Updates the values sent as json in request body of a specific Person by its ID, returns updated json Person structure
+
+* **URL**
+
+  /api/people/{id}
+
+* **Method:**
+
+  `PUT`
+  
+* **URL Params**
+
+  **Required:**
+ 
+  `id=[integer]`
+
+* **Body Data (application/json)**
+
+  ```json
+     {
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "city": "Prishtine"
+     }
+   ```
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    
+    ```json
+     {
+        "id": 5,
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "city": "Prishtine",
+        "mac": "9e:ea:28:41:2a:50",
+        "timestamp": "2015-04-25 21:02:11 +0700",
+        "creditcard": "1211-1221-1234-2201"
+     }
+    ```
+      
+      
  
 ### Sort People Data
 Returns json of people data sorted naturally by its name
