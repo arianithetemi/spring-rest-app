@@ -51,14 +51,6 @@ public class PersonController {
     }
 
     /*
-
-     */
-    @RequestMapping( value = "/{id}", method = RequestMethod.PUT)
-    public Person findByIdAndUpdate(@PathVariable(value="id") long id, @RequestBody Person updatedPerson) {
-        return personService.findByIdAndUpdate(id, updatedPerson);
-    }
-
-    /*
         Endpoint will take as path parameter an id,
         personService will find Person by given id in path
         will return as response that Person data as JSON
@@ -66,6 +58,26 @@ public class PersonController {
     @RequestMapping( value = "/{id}", method = RequestMethod.GET)
     public Person read(@PathVariable(value="id") long id) {
         return personService.readById(id);
+    }
+
+    /*
+        Taking id in path as a parameter, getting also the new JSON person
+        from request body, finding in db and updating the values of this Person
+     */
+    @RequestMapping( value = "/{id}", method = RequestMethod.PUT)
+    public Person findByIdAndUpdate(@PathVariable(value="id") long id, @RequestBody Person updatedPerson) {
+        return personService.findByIdAndUpdate(id, updatedPerson);
+    }
+
+
+    /*
+        Take as path variable an id, using deleteById method of personService
+        will find and delete from db the person by given id in URL
+     */
+    @RequestMapping( value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable(value="id") long id) {
+        personService.deleteById(id);
+        return "{\"message\": Person successfully deleted!}";
     }
 
     /*

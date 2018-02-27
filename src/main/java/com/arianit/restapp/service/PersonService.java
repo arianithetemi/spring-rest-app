@@ -49,6 +49,11 @@ public class PersonService {
         return personRepository.save(person);
     }
 
+    // Finding Person by given id and removing from DB using personRepository delete method
+    public void deleteById(long id) {
+        personRepository.delete(id);
+    }
+
     // Finding and returning people ordered by name by ascending
     public List<Person> findAllOrderedByNameAsc() {
         return personRepository.findAllByOrderByNameAsc();
