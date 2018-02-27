@@ -22,9 +22,31 @@ public class PersonService {
         return personRepository.save(person);
     }
 
-    // Finding Person by given id using personRepository
+    // Finding Person by given id using personRepository findOne method
     public Person readById(long id) {
         return personRepository.findOne(id);
+    }
+
+    // Update Person by given id using personRepository update method
+    public Person findByIdAndUpdate(long id, Person updatedPerson) {
+        Person person = personRepository.findOne(id);
+        if( updatedPerson.getName() != null ) {
+            person.setName(updatedPerson.getName());
+        }
+        if( updatedPerson.getCity() != null) {
+            person.setCity(updatedPerson.getCity());
+        }
+        if( updatedPerson.getEmail() != null) {
+            person.setEmail(updatedPerson.getEmail());
+        }
+        if( updatedPerson.getMac() != null) {
+            person.setMac(updatedPerson.getMac());
+        }
+        if( updatedPerson.getCreditcard() != null) {
+            person.setCreditcard(updatedPerson.getCreditcard());
+        }
+
+        return personRepository.save(person);
     }
 
     // Finding and returning people ordered by name by ascending

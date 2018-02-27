@@ -25,6 +25,12 @@ public class PersonController {
         return personService.list();
     }
 
+    /*
+        Endpoint will get json structure with values in body
+        will generate a datetime in specific format and
+        will set the timestamp of the person obj
+        will save and return as json structure the inserted Person data
+     */
     @RequestMapping( value = "/", method = RequestMethod.POST)
     public Person create(@RequestBody Person person) {
 
@@ -42,6 +48,14 @@ public class PersonController {
         person.setTimestamp(createdDate);
 
         return personService.create(person);
+    }
+
+    /*
+
+     */
+    @RequestMapping( value = "/{id}", method = RequestMethod.PUT)
+    public Person findByIdAndUpdate(@PathVariable(value="id") long id, @RequestBody Person updatedPerson) {
+        return personService.findByIdAndUpdate(id, updatedPerson);
     }
 
     /*
