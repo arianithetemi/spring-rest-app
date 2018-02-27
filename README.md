@@ -1,6 +1,8 @@
 # Spring RESTful Application
 A RESTful API Application built on Spring Framework. When running this application a command line runner will be excetuted in order to populate the in-memory SQL database with entries from a JSON file. The resource of REST API is **People**, which will response JSON structure data based on endpoints.
 
+
+
 ## Technologies used:
   * Language: **Java**
   * Development Kit: **Java SDK 8**
@@ -60,3 +62,96 @@ Follow the instructions below in order to run automated tests.
  ```
   sudo mvn test
  ```
+ 
+ ## API Documentation 
+ **Basepath: localhost:8080**
+ 
+ ### Show People
+ Returns json list of people data
+ 
+ * **URL**
+ 
+    /api/people/
+    
+ * **Method:**
+    
+    `GET`
+    
+ * **Success Response:**
+
+    * **Code**: 200
+    
+      **Content:** 
+      
+      ```json
+      [{
+            "id": 1,
+            "name": "Keeley Bosco",
+            "email": "katlyn@jenkinsmaggio.net",
+            "city": "Lake Gladysberg",
+            "mac": "08:fd:0b:cd:77:f7",
+            "timestamp": "2015-04-25 13:57:36 +0700",
+            "creditcard": "1228-1221-1221-1431"
+       }, {...}]
+       ```
+  
+### Show Person
+Returns json of a specific Person data based on its id
+ 
+* **URL**
+ 
+   /api/people/:id
+    
+* **Method:**
+    
+   `GET`
+    
+* **Success Response:**
+
+   * **Code**: 200
+    
+     **Content:** 
+      
+     ```json
+     {
+          "id": 5,
+          "name": "Dr. Araceli Lang",
+          "email": "mavis_lehner@jacobi.name",
+          "city": "Yvettemouth",
+          "mac": "9e:ea:28:41:2a:50",
+          "timestamp": "2015-04-25 21:02:11 +0700",
+          "creditcard": "1211-1221-1234-2201"
+      }
+      ```
+ 
+### Sort People Data
+Returns json of people data sorted naturally by its name
+ 
+* **URL**
+ 
+   /api/people/sort/name
+    
+* **Method:**
+    
+   `GET`
+    
+* **Success Response:**
+
+   * **Code**: 200
+
+     **Content:** 
+
+     ```json
+     [{
+         "id": 32,
+         "name": "Alec Howell",
+         "email": "derick.gaylord@beer.name",
+         "city": "South Hollyport",
+         "mac": "ca:8c:24:ef:65:98",
+         "timestamp": "2015-04-25 00:38:05 +0700",
+         "creditcard": "1234-2121-1221-1211"
+         }, {...}]
+      ```
+   
+ ## Author
+  * **Arianit Hetemi**
